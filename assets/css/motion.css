@@ -1,0 +1,142 @@
+/* Pearl Creamery motion. Everything here is switched off for people who prefer reduced motion. */
+@media (prefers-reduced-motion: no-preference){
+
+  /* Hero entrance, staggered */
+  .pc-in{opacity:0;transform:translateY(22px);animation:pcUp .8s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--d,0) * 120ms);}
+  @keyframes pcUp{to{opacity:1;transform:none;}}
+
+  /* Tagline gets a gold shimmer sweep once */
+  .pc-tagline{background:linear-gradient(100deg,var(--ink) 40%,var(--gold) 50%,var(--ink) 60%) 140% 0/250% 100%;
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:pcShine 2.6s 1s ease-out forwards;}
+  @keyframes pcShine{to{background-position:-40% 0;}}
+
+  /* Label: gentle float + slowly turning dashed gold ring */
+  .pc-label-wrap{position:relative;z-index:1;animation:pcFloat 6s ease-in-out infinite;}
+  .pc-label-wrap::before{content:"";position:absolute;inset:-14px;border-radius:50%;
+    border:1.5px dashed var(--gold-soft);animation:pcSpin 40s linear infinite;pointer-events:none;}
+  @keyframes pcFloat{50%{transform:translateY(-12px);}}
+  @keyframes pcSpin{to{transform:rotate(360deg);}}
+
+  /* Floating yoghurt drops behind the hero */
+  .pc-drops{position:absolute;inset:0;overflow:hidden;pointer-events:none;}
+  .pc-drops i{position:absolute;bottom:-40px;width:var(--s);height:var(--s);border-radius:50% 50% 50% 8%;transform:rotate(-45deg);
+    background:var(--c);opacity:0;animation:pcRise var(--t) linear infinite;animation-delay:var(--w);left:var(--x);}
+  @keyframes pcRise{0%{opacity:0;transform:translateY(0) rotate(-45deg);}15%{opacity:.5;}85%{opacity:.35;}100%{opacity:0;transform:translateY(-620px) rotate(-10deg);}}
+
+  /* Live weather dot */
+  .pc-weather::before{content:"";display:inline-block;width:8px;height:8px;margin-right:.55rem;border-radius:50%;
+    background:#2f9e62;box-shadow:0 0 0 0 rgba(47,158,98,.5);animation:pcPulse 2s infinite;}
+  @keyframes pcPulse{70%{box-shadow:0 0 0 9px rgba(47,158,98,0);}100%{box-shadow:0 0 0 0 rgba(47,158,98,0);}}
+
+  /* Scrolling ticker */
+  .pc-values{overflow:hidden;white-space:nowrap;}
+  .pc-track{display:inline-flex;animation:pcTicker 28s linear infinite;}
+  .pc-values:hover .pc-track{animation-play-state:paused;}
+  @keyframes pcTicker{to{transform:translateX(-50%);}}
+
+  /* Scroll reveal */
+  .js [data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--d,0) * 70ms);}
+  .js [data-reveal].seen{opacity:1;transform:none;}
+
+  /* Hover life */
+  .pc-product:hover{transform:translateY(-6px);}
+  .pc-product .pc-swirl{transition:height .25s;} .pc-product:hover .pc-swirl{height:16px;}
+  .pc-btn{transition:transform .15s,background .2s,box-shadow .2s;}
+  .pc-btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(169,128,47,.3);}
+  .pc-btn:active{transform:scale(.97);}
+  .pc-btn.pulse{animation:pcBtn 2.4s ease-in-out infinite;}
+  @keyframes pcBtn{50%{box-shadow:0 0 0 10px rgba(169,128,47,.14);}}
+  .pc-why img,.pc-jar{transition:transform .6s;} .pc-why img:hover,.pc-jar:hover{transform:scale(1.03);}
+
+  /* Total ticks when it changes */
+  .pc-total strong.bump{animation:pcBump .35s;}
+  @keyframes pcBump{40%{transform:scale(1.15);color:var(--berry);}}
+
+  /* Order success: tick draws itself */
+  .pc-tick{width:64px;height:64px;}
+  .pc-tick circle{fill:none;stroke:var(--gold);stroke-width:3;stroke-dasharray:166;stroke-dashoffset:166;animation:pcDraw .7s ease forwards;}
+  .pc-tick path{fill:none;stroke:var(--gold);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:48;stroke-dashoffset:48;animation:pcDraw .4s .55s ease forwards;}
+  @keyframes pcDraw{to{stroke-dashoffset:0;}}
+  #success:not(.d-none){animation:pcUp .6s forwards;}
+}
+.pc-hero{position:relative;} .pc-hero .container{position:relative;z-index:1;}
+.pc-track span{padding:0 2.2rem;}
+@media (prefers-reduced-motion: reduce){.pc-drops{display:none;}}
+
+/* ---------- Hero video ---------- */
+.pc-hero{overflow:hidden;}
+.pc-bgvideo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+.pc-veil{position:absolute;inset:0;z-index:0;background:linear-gradient(90deg,rgba(251,247,240,.94) 0%,rgba(251,247,240,.78) 45%,rgba(251,247,240,.28) 100%);}
+.pc-drops{z-index:0;}
+@media (max-width:991px){.pc-veil{background:rgba(251,247,240,.82);}}
+
+/* ---------- Fruit around the label ---------- */
+.pc-stage{position:relative;max-width:440px;margin:0 auto;}
+.pc-stage .pc-label-wrap{margin:0;}
+.pc-fruit{position:absolute;width:var(--w);height:auto;transform:rotate(var(--r));filter:drop-shadow(0 10px 12px rgba(60,20,20,.22));z-index:0;opacity:.55;}
+@media (max-width:575px){.pc-fruit{--w:14%!important;}}
+@media (prefers-reduced-motion: no-preference){
+  .pc-fruit{animation:pcBob var(--t,5s) ease-in-out infinite;animation-delay:var(--dl,0s);}
+  @keyframes pcBob{50%{transform:translateY(-14px) rotate(calc(var(--r) + 9deg));}}
+}
+
+/* ---------- Monogram loader ---------- */
+#pcLoader{display:none;}
+.js #pcLoader{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:var(--ivory);transition:opacity .6s,visibility .6s;}
+#pcLoader.done{opacity:0;visibility:hidden;}
+.pc-loader-in{text-align:center;}
+.pc-mono{position:relative;width:110px;margin:0 auto 1rem;}
+.pc-mono img{display:block;width:100%;height:auto;}
+.pc-mono img:first-child{filter:grayscale(1) opacity(.22);}
+.pc-mono .fill{position:absolute;inset:0;clip-path:inset(100% 0 0 0);animation:pcFillUp 1.4s .1s ease-in-out forwards;}
+@keyframes pcFillUp{to{clip-path:inset(0 0 0 0);}}
+.pc-loader-name{letter-spacing:.45em;font-size:.8rem;color:var(--ink-soft);opacity:0;animation:pcUp .8s .5s forwards;}
+@media (prefers-reduced-motion: reduce){.js #pcLoader{display:none;}}
+
+/* ---------- Card fill: yoghurt rises with a rippling top edge ---------- */
+.pc-product{position:relative;}
+.pc-product > *:not(.pc-fill){position:relative;z-index:1;}
+.pc-fill{position:absolute;left:0;right:0;bottom:0;height:0;background:linear-gradient(to top,var(--fill2,var(--fill)),var(--fill));z-index:0;pointer-events:none;}
+.pc-fill::before{content:"";position:absolute;left:0;right:0;top:-11px;height:12px;background:var(--fill);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 12'%3E%3Cpath d='M0 12V6C10 0 20 0 30 6s20 6 30 0v6Z'/%3E%3C/svg%3E") repeat-x 0 0/60px 12px;
+          mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 12'%3E%3Cpath d='M0 12V6C10 0 20 0 30 6s20 6 30 0v6Z'/%3E%3C/svg%3E") repeat-x 0 0/60px 12px;}
+.pc-product:hover .pc-fill,.pc-product:focus-visible .pc-fill,.pc-product.active .pc-fill{height:calc(100% + 11px);}
+@media (prefers-reduced-motion: no-preference){
+  .pc-fill{transition:height .75s cubic-bezier(.3,.8,.3,1);}
+  .pc-fill::before{animation:pcWave 2.2s linear infinite;}
+  @keyframes pcWave{to{-webkit-mask-position:60px 0;mask-position:60px 0;}}
+}
+
+/* Second, lighter wave behind the first, plus bubbles */
+.pc-fill::after{content:"";position:absolute;left:0;right:0;top:-18px;height:14px;background:var(--fill);opacity:.7;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 14'%3E%3Cpath d='M0 14V8C14 0 26 0 40 8s26 6 40 0v6Z'/%3E%3C/svg%3E") repeat-x 0 0/80px 14px;
+          mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 14'%3E%3Cpath d='M0 14V8C14 0 26 0 40 8s26 6 40 0v6Z'/%3E%3C/svg%3E") repeat-x 0 0/80px 14px;}
+.pc-bub{position:absolute;bottom:6px;left:var(--x);width:var(--s);height:var(--s);border-radius:50%;background:rgba(255,255,255,.65);opacity:0;}
+.pc-product:hover .pc-bub,.pc-product:focus-visible .pc-bub,.pc-product.active .pc-bub{opacity:.8;}
+@media (prefers-reduced-motion: no-preference){
+  .pc-fill::after{animation:pcWave2 3.4s linear infinite reverse;}
+  @keyframes pcWave2{to{-webkit-mask-position:80px 0;mask-position:80px 0;}}
+  .pc-bub{animation:pcBubble var(--t,4s) ease-in infinite;animation-delay:var(--w,0s);}
+  @keyframes pcBubble{0%{transform:translateY(0) scale(.6);}100%{transform:translateY(-150px) scale(1.1);opacity:0;}}
+  .pc-product:hover .pc-bub{opacity:.8;}
+}
+
+/* ---------- Faded vertical moving words in hero background ---------- */
+.pc-bgwords{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;opacity:.055;}
+.pc-bgtrack{display:flex;flex-direction:column;align-items:flex-start;gap:1.2rem;width:100%;animation:pcBgWords 34s linear infinite;}
+.pc-bgtrack span{font-family:'Jost',sans-serif;font-weight:700;font-size:clamp(1.05rem,4.6vw,4.6rem);letter-spacing:.12em;color:var(--ink);white-space:normal;text-align:center;text-transform:uppercase;max-width:100%;line-height:1.15;}
+@media (prefers-reduced-motion: no-preference){
+  @keyframes pcBgWords{from{transform:translateY(0);}to{transform:translateY(-50%);}}
+}
+@media (prefers-reduced-motion: reduce){.pc-bgwords{display:none;}}
+.pc-bgwords::before,.pc-bgwords::after{content:"";position:absolute;left:0;right:0;height:28%;z-index:1;pointer-events:none;}
+.pc-bgwords::before{top:0;background:linear-gradient(to bottom,var(--ivory),transparent);}
+.pc-bgwords::after{bottom:0;background:linear-gradient(to top,var(--ivory),transparent);}
+
+/* Spoon on the Order button dips on hover */
+.pc-spoon{display:inline-block;width:1.15em;height:1.15em;vertical-align:-.2em;margin-right:.45rem;transform-origin:75% 90%;}
+.pc-spoon path,.pc-spoon ellipse{fill:currentColor;}
+@media (prefers-reduced-motion: no-preference){
+  .pc-btn:hover .pc-spoon{animation:pcDip 1s ease-in-out infinite;}
+  @keyframes pcDip{0%,100%{transform:rotate(0);}35%{transform:rotate(-28deg) translateY(2px);}60%{transform:rotate(14deg);}}
+}

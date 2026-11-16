@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120">
+<defs><radialGradient id="h" cx="50%" cy="45%" r="60%"><stop offset="0" stop-color="#FDEDEA"/><stop offset=".45" stop-color="#F7B3B1"/><stop offset="1" stop-color="#E5565D"/></radialGradient></defs>
+<path d="M50 30C20 28 6 52 18 80c8 18 24 30 32 30s24-12 32-30C94 52 80 28 50 30Z" fill="#CF343C"/>
+<path d="M50 36C26 35 15 55 24 78c7 15 20 25 26 25s19-10 26-25c9-23-2-42-26-42Z" fill="url(#h)"/>
+<path d="M50 44v46" stroke="#FBE3E0" stroke-width="7" stroke-linecap="round" opacity=".8"/>
+<g stroke="#F4A0A0" stroke-width="1.6" stroke-linecap="round" opacity=".8"><path d="M50 60 38 50M50 60l12-10M50 74 36 66M50 74l14-8"/></g>
+<g fill="#F8DE8C"><ellipse cx="30" cy="62" rx="1.8" ry="2.8"/><ellipse cx="70" cy="62" rx="1.8" ry="2.8"/><ellipse cx="34" cy="82" rx="1.8" ry="2.8"/><ellipse cx="66" cy="82" rx="1.8" ry="2.8"/><ellipse cx="50" cy="96" rx="1.8" ry="2.8"/></g>
+<g fill="#4F9A3C"><path d="M50 34C40 22 28 24 22 30c10 2 18 6 28 4Z"/><path d="M50 34C60 22 72 24 78 30c-10 2-18 6-28 4Z"/><path d="M50 34C44 20 46 10 50 4c4 6 6 16 0 30Z" fill="#69B24C"/></g>
+</svg>

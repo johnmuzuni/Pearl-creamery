@@ -1,0 +1,5 @@
+# Keep config and SQL private; block directory listing
+Options -Indexes
+<FilesMatch "^(config\.php|database\.sql|README\.md)$">
+  Require all denied
+</FilesMatch>

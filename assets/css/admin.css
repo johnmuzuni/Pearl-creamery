@@ -1,0 +1,33 @@
+.kpi { background: #fff; border: 1px solid var(--pc-line); border-radius: 1rem; padding: 1.1rem 1.25rem; height: 100%; }
+.kpi .value { font: 700 1.7rem/1.1 'Playfair Display', serif; color: var(--pc-navy); }
+.kpi .label { color: var(--pc-muted); font-size: .85rem; }
+.panel { background: #fff; border: 1px solid var(--pc-line); border-radius: 1rem; }
+.order-card { border-bottom: 1px solid var(--pc-line); padding: 1rem 1.25rem; }
+.order-card:last-child { border-bottom: 0; }
+.order-code-sm { font: 700 1.05rem 'Playfair Display', serif; color: var(--pc-navy); }
+.status-pill { border-radius: 9999px; padding: .15rem .7rem; font-size: .78rem; font-weight: 700; }
+.st-Pending { background: #fff1d1; color: #714d00; }
+.st-Processing { background: #dfe6f5; color: #181f38; }
+.st-Delivered { background: #dcefe0; color: #1d5a2c; }
+.st-Cancelled { background: #f6dcd9; color: #93000a; }
+.table > :not(caption) > * > * { background: transparent; }
+
+/* Admin pages must never pan sideways - only the nav strip scrolls. */
+html, body { max-width: 100%; overflow-x: hidden; }
+
+/* Admin top bar: brand and Log out stay put, only the tabs scroll sideways. */
+.navbar .admin-bar { display: flex; align-items: center; flex-wrap: nowrap; gap: .5rem; min-width: 0; }
+.admin-scroll { flex: 1 1 0%; display: flex; align-items: center; min-width: 0;
+  overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain;
+  white-space: nowrap; scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch; }
+.admin-scroll::-webkit-scrollbar { display: none; }
+.admin-scroll .navbar-nav { flex-direction: row; flex-wrap: nowrap; }
+.admin-scroll .nav-link { white-space: nowrap; }
+.admin-logout { flex: 0 0 auto; white-space: nowrap; }
+.btn-pill { border-radius: 9999px; }
+.panel, .order-card { overflow-wrap: anywhere; }
+@media (max-width: 575.98px) {
+  .navbar .admin-bar .brand-name { display: none; }
+  .navbar .admin-bar { gap: .25rem; }
+  .admin-logout { padding-inline: .7rem; }
+}

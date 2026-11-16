@@ -1,0 +1,103 @@
+/* Pearl Creamery brand: ivory paper, gold foil, espresso lettering, strawberry red */
+:root{
+  --ivory:#FBF7F0; --cream:#F3EBDD; --gold:#A9802F; --gold-soft:#D9BF84;
+  --ink:#2B1B12; --ink-soft:#6B5648; --berry:#B83232; --blush:#F5DEDC; --line:#E4D6B8; --white:#fff;
+}
+body{font-family:'Jost',system-ui,sans-serif;background:var(--ivory);color:var(--ink);font-size:1.02rem;}
+h1,h2,h3,.pc-wordmark,.pc-logo{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;letter-spacing:.01em;}
+.pc-script{font-family:'Pinyon Script','Brush Script MT',cursive;color:var(--gold);font-weight:400;}
+a{color:var(--gold);} a:hover{color:var(--berry);}
+
+/* Nav */
+.pc-nav{background:var(--ivory);border-bottom:1px solid var(--line);}
+.pc-logo{display:flex;align-items:center;gap:.6rem;color:var(--ink)!important;font-size:1.45rem;text-decoration:none;}
+.pc-logo img{height:38px;width:auto;}
+.pc-logo small{font-family:'Jost',sans-serif;font-size:.7rem;letter-spacing:.35em;font-weight:500;color:var(--ink-soft);}
+
+/* Buttons */
+.pc-btn{background:var(--ink);color:var(--ivory);border:1px solid var(--ink);border-radius:999px;padding:.65rem 1.7rem;font-weight:500;letter-spacing:.04em;}
+.pc-btn:hover,.pc-btn:focus{background:var(--gold);border-color:var(--gold);color:#fff;}
+.pc-btn-ghost{border:1px solid var(--gold);color:var(--ink);border-radius:999px;background:transparent;font-weight:500;}
+.pc-btn-ghost:hover{background:var(--gold);color:#fff;}
+
+/* Hero */
+.pc-hero{padding:3.5rem 0 3rem;background:radial-gradient(circle at 80% 30%,var(--cream) 0,var(--ivory) 65%);}
+.pc-hero .row{align-items:center;}
+.pc-wordmark{font-size:clamp(3.4rem,10vw,6.2rem);line-height:.95;margin:0;}
+.pc-sub{letter-spacing:.45em;font-family:'Jost',sans-serif;font-weight:500;font-size:1rem;margin:.4rem 0 1rem;display:flex;align-items:center;gap:.9rem;}
+.pc-sub::before,.pc-sub::after{content:"";height:1px;width:2.2rem;background:var(--gold);}
+.pc-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5rem;margin-bottom:1rem;}
+.pc-hero .lead{max-width:42ch;color:var(--ink-soft);}
+.pc-weather{display:inline-block;margin:.5rem 0 1.2rem;padding:.45rem 1rem;border:1px solid var(--line);background:var(--white);border-radius:999px;font-size:.95rem;}
+.pc-label-wrap{max-width:440px;margin:0 auto;border-radius:50%;box-shadow:0 18px 50px rgba(120,90,40,.22);}
+.pc-label-wrap img{width:100%;height:auto;border-radius:50%;display:block;}
+.pc-values{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--white);padding:.9rem 0;text-align:center;letter-spacing:.3em;font-size:.82rem;color:var(--ink-soft);}
+
+/* Sections */
+.pc-h2{font-size:2.3rem;margin-bottom:.3rem;}
+.pc-lede{color:var(--ink-soft);margin-bottom:1.5rem;}
+.pc-card{background:var(--white);border-radius:14px;border:1px solid var(--line);}
+
+/* Products */
+.pc-product{height:100%;cursor:pointer;overflow:hidden;transition:border-color .15s,box-shadow .15s;}
+.pc-product:hover,.pc-product.active{border-color:var(--gold);box-shadow:0 8px 24px rgba(169,128,47,.18);}
+.pc-swirl{height:10px;}
+.sw-strawberry{background:#E58C97;} .sw-blueberry{background:#7E78C4;} .sw-vanilla{background:#E9D49A;}
+.sw-plain{background:#DAD3C4;} .sw-other{background:#A8CDB5;}
+.pc-product h3{font-size:1.3rem;}
+.pc-price{font-weight:600;color:var(--berry);}
+
+/* Why Pearl */
+.pc-why img{width:100%;height:100%;object-fit:cover;border-radius:14px;max-height:360px;}
+.pc-why h3{font-size:1.25rem;margin-bottom:.1rem;}
+.pc-why p{color:var(--ink-soft);margin-bottom:1rem;}
+
+/* Form */
+.form-label{font-weight:500;font-size:.92rem;}
+.form-control,.form-select{border-color:var(--line);background:var(--ivory);}
+.form-control:focus,.form-select:focus,.btn:focus-visible,.pc-product:focus-visible{border-color:var(--gold);box-shadow:0 0 0 .2rem rgba(169,128,47,.28);outline:0;}
+.form-check-input:checked{background-color:var(--ink);border-color:var(--ink);}
+.pc-total strong{font-size:1.4rem;font-family:'Cormorant Garamond',serif;}
+.pc-jar{max-height:300px;width:100%;object-fit:cover;border-radius:14px;}
+
+/* Footer */
+.pc-footer{padding:2.5rem 0;background:var(--ink);color:#E9DFCB;margin-top:3rem;}
+.pc-footer a{color:var(--gold-soft);}
+.pc-footer .pc-script{color:var(--gold-soft);font-size:1.7rem;}
+.msg-error{color:var(--berry);} .msg-ok{color:#1c7a50;}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important;}}
+
+/* ---------- Mobile spacing fixes ---------- */
+@media (max-width: 767.98px){
+  .pc-hero{padding-top:2rem;padding-bottom:1rem;}
+  .pc-hero .pc-in{animation-delay:0ms;}            /* faster reveal on small screens */
+  .pc-values{padding:.5rem 0;}
+  main.container section.pt-5,
+  #menu.pt-5{padding-top:.6rem!important;}
+  .pc-hero{padding-bottom:.5rem;}
+  .pc-why{padding-top:.75rem;}
+  #order.pt-5{padding-top:1.5rem!important;}
+  .pc-weather-row{margin-top:.75rem;text-align:center;}
+}
+
+/* ---------- Full-page fixed video background ---------- */
+html{background:var(--ivory);}
+body.pc-has-sitebg{background:transparent;}
+.pc-site-bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background:var(--ivory);}
+.pc-site-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.pc-site-veil{position:absolute;inset:0;background:rgba(251,247,240,.74);}
+.pc-hero{background:transparent;}
+
+/* ---------- Weather widget placement in hero (right column) ---------- */
+.pc-weather-row{margin-top:.8rem;text-align:center;}
+.pc-weather-row .pc-weather{display:inline-block;}
+
+/* ---------- Admin nav: horizontal scroll on mobile ---------- */
+@media (max-width: 767.98px){
+  .pc-nav .container{display:flex;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;gap:.25rem;padding-bottom:.2rem;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;}
+  .pc-nav .container::-webkit-scrollbar{display:none;}
+  .pc-nav .navbar-brand{flex:0 0 auto;}
+  .pc-nav .navbar-nav{flex:0 0 auto;flex-direction:row;flex-wrap:nowrap;margin-left:.5rem;}
+  .pc-nav .nav-link{white-space:nowrap;}
+}

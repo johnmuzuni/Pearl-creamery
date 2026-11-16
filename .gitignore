@@ -1,0 +1,5 @@
+# VS Code SFTP credentials
+.vscode/sftp.json
+
+# Local environment
+config.local.php
